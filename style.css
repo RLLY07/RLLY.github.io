@@ -131,7 +131,8 @@ h1 {
 }
 
 h1 em,
-h2 em {
+h2 em,
+.post-content h2 em {
   color: var(--blue-deep);
   font-style: italic;
 }
@@ -237,7 +238,8 @@ h2 {
   border-bottom: 1px solid var(--line);
 }
 
-.personal-facts dt {
+.personal-facts dt,
+.spec-group dt {
   color: var(--muted);
   font-size: .7rem;
   text-transform: uppercase;
@@ -350,13 +352,6 @@ h2 {
 .spec-group dd {
   padding: 10px 0;
   border-bottom: 1px solid var(--line);
-}
-
-.spec-group dt {
-  color: var(--muted);
-  font-size: .7rem;
-  letter-spacing: .1em;
-  text-transform: uppercase;
 }
 
 .spec-group dd {
@@ -526,11 +521,22 @@ h2 {
   color: var(--paper);
 }
 
+.project-photo,
+.case-photo {
+  display: block;
+}
+
 .project-photo {
   width: 100%;
   height: 100%;
-  display: block;
   object-fit: cover;
+}
+
+.project-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 18px;
 }
 
 .shape-deep {
@@ -644,8 +650,13 @@ h2 {
   width: 100%;
   height: 100%;
   min-height: 0;
-  display: block;
   object-fit: contain;
+}
+
+.case-logo {
+  height: auto;
+  object-fit: contain;
+  margin: 0 auto;
 }
 
 .case-visual span {
@@ -685,24 +696,6 @@ h2 {
   margin-top: 20px;
 }
 
-@media (max-width: 700px) {
-  .case-header {
-    grid-template-columns: 1fr;
-    gap: 30px;
-    padding-top: 70px;
-  }
-
-  .case-visual {
-    min-height: 280px;
-    margin-bottom: 55px;
-  }
-
-  .case-copy {
-    grid-template-columns: 1fr;
-    gap: 25px;
-  }
-}
-
 .post-list {
   padding-bottom: 95px;
 }
@@ -718,11 +711,6 @@ h2 {
 .post-content h2 {
   font-size: clamp(2.35rem, 5vw, 4.5rem);
   line-height: 1.03;
-}
-
-.post-content h2 em {
-  color: var(--blue-deep);
-  font-style: italic;
 }
 
 .post-content .text-link {
@@ -743,6 +731,22 @@ h2 {
 }
 
 @media (max-width: 700px) {
+  .case-header {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding-top: 70px;
+  }
+
+  .case-visual {
+    min-height: 280px;
+    margin-bottom: 55px;
+  }
+
+  .case-copy {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
   .page-intro {
     padding-top: 70px;
     padding-bottom: 60px;
@@ -783,9 +787,7 @@ h2 {
   .post-content h2 {
     font-size: 2.2rem;
   }
-}
 
-@media (max-width: 700px) {
   .site-header {
     min-height: 74px;
     flex-wrap: wrap;
