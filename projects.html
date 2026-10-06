@@ -10,95 +10,41 @@
 </head>
 
 <body>
+  <a class="skip-link" href="#main-content">Ga naar de hoofdinhoud</a>
   <header class="site-header">
-    <a class="brand" href="index.html"><span>R</span>LLY</a>
+    <a class="brand" href="index.html" aria-label="RLLY, startpagina"><span aria-hidden="true">R</span>LLY</a>
     <nav aria-label="Hoofdnavigatie">
       <a href="index.html">Whoami</a>
-      <a class="active" href="projects.html">Projecten</a>
+      <a class="active" href="projects.html" aria-current="page">Projecten</a>
       <a href="blog.html">Blog</a>
     </nav>
-    <a class="header-note" href="mailto:raileyboer04@gmail.com">Beschikbaar voor werk <span>↗</span></a>
+    <a class="header-note" href="contact.html">Neem contact op <span aria-hidden="true">↗</span></a>
   </header>
 
-  <main>
+  <main id="main-content">
     <section class="page-intro">
       <p class="eyebrow">02 / PROJECTEN</p>
       <h1>Werk dat iets <em>in beweging zet.</em></h1>
       <p class="intro">Een greep uit projecten waarin ik onderzoek, ontwerp en technologie samenbreng.</p>
     </section>
 
-    <section class="project-list" aria-label="Projectoverzicht">
-      <details class="project-item project-featured">
-        <summary>
-          <span class="project-number">01</span>
-          <article class="project-info">
-            <p class="project-type">Webapplicatie · 2026</p>
-            <h2>Klascompas</h2>
-            <p>Een rustige digitale plek waar leerlingen en docenten overzicht houden op alles wat een schooldag vraagt.
-            </p>
-            <footer class="tag-list"><span>Research</span><span>UX/UI</span><span>Frontend</span><span>Backend</span>
-            </footer>
-          </article>
-          <figure class="project-shape shape-blue"><img class="project-photo" src="images/kclogo.png"
-              alt="Logo van Klascompas">
-          </figure>
-          <span class="project-toggle" aria-hidden="true">+</span>
-        </summary>
-        <section class="project-details">
-          <p><strong>De opdracht</strong>Ontwerp een oplossing die hulpvragen in de klas inzichtelijk maakt, zodat
-            leerlingen niet onnodig hoeven te wachten en leraren hun aandacht eerlijker en efficiënter kunnen verdelen.
-          </p>
-          <p><strong>Mijn rol</strong> Onderzoek, interfaceontwerp, front-end en back-end development.</p><a
-            class="case-link" href="project-klascompas.html">Open volledige case <span>↗</span></a>
-        </section>
-      </details>
-      <details class="project-item">
-        <summary>
-          <span class="project-number">02</span>
-          <article class="project-info">
-            <p class="project-type">Desktop app · 2026</p>
-            <h2>The Hague Heights</h2>
-            <p>Een simulatieomgeving voor het testen van verschillende hotel layouts en risicoscenario’s.</p>
-            <footer class="tag-list"><span>Simulation</span><span>UX/UI</span><span>Java</span></footer>
-          </article>
-          <figure class="project-shape shape-deep"><img class="project-photo project-logo"
-              src="images/The_Hague_Heights_logo.png" alt="Logo van The Hague Heights"></figure>
-          <span class="project-toggle" aria-hidden="true">+</span>
-        </summary>
-        <section class="project-details">
-          <p><strong>De opdracht</strong> Ontwerp een desktop applicatie die verschillende hotel layouts kan simuleren
-            en
-            scenario’s met risico’s inzichtelijk maakt.</p>
-          <p><strong>Mijn rol</strong> Concept, interface-ontwerp en productdenken.</p><a class="case-link"
-            href="project-hotelsym.html">Open volledige case <span>↗</span></a>
-        </section>
-      </details>
-      <details class="project-item">
-        <summary>
-          <span class="project-number">03</span>
-          <article class="project-info">
-            <p class="project-type">W.I.P. · 2026</p>
-            <h2>Nieuwe opdracht</h2>
-            <p>Er staat nog geen afgeronde case hier. Zodra een nieuwe opdracht beschikbaar is, verschijnt deze plek
-              hier.</p>
-            <footer class="tag-list"><span>Coming soon</span><span>W.I.P.</span></footer>
-          </article>
-          <figure class="project-shape shape-deep"><img class="project-photo project-logo" src="images/WIP.png"
-              alt="Work in progress project"></figure>
-          <span class="project-toggle" aria-hidden="true">+</span>
-        </summary>
-        <section class="project-details">
-          <p><strong>De opdracht</strong> Deze plek is tijdelijk gereserveerd voor een nieuwe case die binnenkort wordt
-            toegevoegd.</p>
-          <p><strong>Status</strong> Werk in uitvoering. Er komt hier later een nieuwe opdracht te staan.</p><a
-            class="case-link" href="project-onderweg.html">Open W.I.P. pagina <span>↗</span></a>
-        </section>
-      </details>
-    </section>
+    <div class="project-filter">
+      <label for="project-order">Volgorde projecten</label>
+      <select id="project-order" name="order">
+        <option value="ascending">Datum: oud → nieuw</option>
+        <option value="descending">Datum: nieuw → oud</option>
+      </select>
+    </div>
+    <p id="project-status" class="visually-hidden" role="status" aria-live="polite"></p>
+    <noscript>
+      <p>Schakel JavaScript in om de projectenlijst te bekijken.</p>
+    </noscript>
+    <ul id="project-list" class="project-list" aria-label="Projectoverzicht"></ul>
   </main>
 
   <footer class="site-footer"><span>© 2026 Railey / RLLY</span><span>Gemaakt met aandacht.</span><a
-      href="mailto:raileyboer04@gmail.com">raileyboer04@gmail.com</a></footer>
+      href="contact.html">Neem contact op</a></footer>
+  <script src="script.js" defer></script>
 </body>
 
 </html>

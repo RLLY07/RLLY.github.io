@@ -11,24 +11,25 @@
 </head>
 
 <body>
+  <a class="skip-link" href="#main-content">Ga naar de hoofdinhoud</a>
   <header class="site-header">
-    <a class="brand" href="index.html"><span>R</span>LLY</a>
+    <a class="brand" href="index.html" aria-label="RLLY, startpagina"><span aria-hidden="true">R</span>LLY</a>
     <nav aria-label="Hoofdnavigatie">
-      <a class="active" href="index.html">Whoami</a>
+      <a class="active" href="index.html" aria-current="page">Whoami</a>
       <a href="projects.html">Projecten</a>
       <a href="blog.html">Blog</a>
     </nav>
-    <a class="header-note" href="mailto:raileyboer04@gmail.com">Neem contact op <span>↗</span></a>
+    <a class="header-note" href="contact.html">Neem contact op <span aria-hidden="true">↗</span></a>
   </header>
 
-  <main>
+  <main id="main-content">
     <section class="hero profile-hero">
       <header class="hero-copy">
         <p class="eyebrow">01 / WHOAMI</p>
         <h1>Van concept naar code <em>bouwen, leren en ontwikkelen.</em></h1>
         <p class="intro">Hoi, ik ben Railey, online bekend als RLLY. Ik maak graag heldere interfaces, slimme systemen
           en projecten met een eigen karakter.</p>
-        <a class="text-link" href="projects.html">Bekijk mijn werk <span>→</span></a>
+        <a class="text-link" href="projects.html">Bekijk mijn werk <span aria-hidden="true">→</span></a>
       </header>
       <figure class="portrait-card">
         <img class="portrait-photo" src="images/myself.jpg" alt="Railey, online bekend als RLLY">
@@ -41,13 +42,13 @@
         <p class="eyebrow">02 / PERSOONLIJK</p>
         <h2>Meer dan<br><em>alleen code.</em></h2>
       </header>
-      <section class="personal-content">
-        <article class="body-copy">
+      <div class="personal-content">
+        <div class="body-copy">
           <p>Ik ben Railey, 22 jaar oud en kom uit Delft. Momenteel studeer ik Software Engineering aan De Haagse
             Hogeschool in Den Haag en beweeg ik graag tussen ontwerp en techniek.</p>
           <p>Buiten mijn studie en digitale projecten rijd ik graag motor. Op mijn Yamaha YZF600R Thundercat zoek ik
             graag nieuwe routes op en maak ik ruimte voor een ander soort techniek.</p>
-        </article>
+        </div>
         <dl class="personal-facts">
           <dt>Leeftijd</dt>
           <dd data-birth-date="2004-05-16" data-age>22</dd>
@@ -59,7 +60,7 @@
           <dt>Motor</dt>
           <dd>Yamaha YZF600R Thundercat</dd>
         </dl>
-      </section>
+      </div>
     </section>
 
     <section class="motor-section">
@@ -69,24 +70,24 @@
         <p class="motor-lead">Naast code is dit mijn andere favoriete vorm van techniek: rijden, ontdekken en onderweg
           nieuwe plekken vinden.</p>
       </header>
-      <section class="motor-content">
-        <section class="motor-gallery">
+      <div class="motor-content">
+        <div class="motor-gallery">
           <figure class="motor-photo">
             <img src="images/thundercat-crash.jpg" alt="Mijn Yamaha YZF600R Thundercat voor de crash">
             <figcaption>
               <strong>Voor de reparatie</strong>
-              <small>images/thundercat-crash.jpg</small>
+              <small aria-hidden="true">images/thundercat-crash.jpg</small>
             </figcaption>
           </figure>
           <figure class="motor-photo">
             <img src="images/thundercat-restored.jpg" alt="Mijn herstelde Yamaha YZF600R Thundercat">
             <figcaption>
               <strong>Na de reparatie</strong>
-              <small>images/thundercat-restored.jpg</small>
+              <small aria-hidden="true">images/thundercat-restored.jpg</small>
             </figcaption>
           </figure>
-        </section>
-        <section class="motor-specs">
+        </div>
+        <div class="motor-specs">
           <section class="spec-group">
             <h3>Fabrieksgegevens</h3>
             <p class="spec-year">Yamaha YZF600R Thundercat, modeljaar 2000</p>
@@ -127,35 +128,46 @@
               <dd>180 km/u</dd>
             </dl>
           </section>
+        </div>
+      </div>
+      <div class="motor-extras">
+        <section class="weather-panel" aria-labelledby="motor-weather-heading">
+          <div class="weather-heading">
+            <div>
+              <p class="eyebrow">WEER OP JOUW LOCATIE</p>
+              <h3 id="motor-weather-heading">Is het motorweer?</h3>
+            </div>
+            <form id="motor-weather-form" class="weather-location-form">
+              <label class="visually-hidden" for="motor-weather-location">Plaats of stad</label>
+              <input id="motor-weather-location" name="location" type="search" value="Delft" required
+                placeholder="Plaats of stad">
+              <button id="motor-weather-search" class="weather-refresh" type="submit">Bekijk weer</button>
+              <button id="motor-weather-refresh" class="weather-refresh" type="button">Vernieuwen</button>
+            </form>
+          </div>
+          <p id="motor-weather-status" class="weather-status" role="status" aria-live="polite">Weerbericht laden…</p>
+          <div id="motor-weather-result" class="weather-result" aria-live="polite" aria-atomic="true"></div>
+          <p class="weather-note">Een eenvoudige indicatie op basis van regen en wind, geen officieel veiligheidsadvies.
+          </p>
         </section>
-      </section>
-      <section class="motor-video">
-        <header class="video-heading">
-          <p class="eyebrow">IN BEELD</p>
-          <h3>Een ritje met de Thundercat.</h3>
-        </header>
-        <video controls preload="metadata" poster="images/thundercat.jpg">
-          <source src="videos/thundercat.mp4" type="video/mp4">
-          Je browser ondersteunt geen video. Voeg je video toe als videos/thundercat.mp4.
-        </video>
-      </section>
+        <section class="motor-video">
+          <header class="video-heading">
+            <p class="eyebrow">IN BEELD</p>
+            <h3 id="motor-video-heading">Een ritje met de Thundercat.</h3>
+          </header>
+          <video controls preload="metadata" poster="images/thundercat.jpg" aria-labelledby="motor-video-heading">
+            <source src="videos/thundercat.mp4" type="video/mp4">
+            Je browser ondersteunt geen video. Voeg je video toe als videos/thundercat.mp4.
+          </video>
+        </section>
+      </div>
     </section>
+
   </main>
 
   <footer class="site-footer"><span>© 2026 Railey / RLLY</span><span>Gemaakt met aandacht.</span><a
-      href="mailto:raileyboer04@gmail.com">raileyboer04@gmail.com</a></footer>
-  <script>
-    const ageElement = document.querySelector('[data-age]');
-    const birthDate = new Date(`${ageElement.dataset.birthDate}T00:00:00`);
-    const today = new Date();
-    let age = today.getFullYear() - birthDate.getFullYear();
-
-    if (today < new Date(today.getFullYear(), birthDate.getMonth(), birthDate.getDate())) {
-      age -= 1;
-    }
-
-    ageElement.textContent = age;
-  </script>
+      href="contact.html">Neem contact op</a></footer>
+  <script src="script.js" defer></script>
 </body>
 
 </html>

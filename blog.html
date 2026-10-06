@@ -10,17 +10,18 @@
 </head>
 
 <body>
+  <a class="skip-link" href="#main-content">Ga naar de hoofdinhoud</a>
   <header class="site-header">
-    <a class="brand" href="index.html"><span>R</span>LLY</a>
+    <a class="brand" href="index.html" aria-label="RLLY, startpagina"><span aria-hidden="true">R</span>LLY</a>
     <nav aria-label="Hoofdnavigatie">
       <a href="index.html">Whoami</a>
       <a href="projects.html">Projecten</a>
-      <a class="active" href="blog.html">Blog</a>
+      <a class="active" href="blog.html" aria-current="page">Blog</a>
     </nav>
-    <a class="header-note" href="mailto:raileyboer04@gmail.com">Beschikbaar voor werk <span>↗</span></a>
+    <a class="header-note" href="contact.html">Neem contact op <span aria-hidden="true">↗</span></a>
   </header>
 
-  <main>
+  <main id="main-content">
     <section class="page-intro blog-intro">
       <p class="eyebrow">03 / BLOG</p>
       <h1>Een beginnend <em>blog.</em></h1>
@@ -30,19 +31,19 @@
 
     <section class="post-list" aria-label="Blogoverzicht">
       <article class="post-item post-featured">
-        <time class="post-date" datetime="2025-06-12">Nog geen posts</time>
-        <article class="post-content">
+        <span class="post-date">Nog geen posts</span>
+        <div class="post-content">
           <p class="project-type">Status · Beginfase</p>
           <h2>Dit is nog het<br><em>startpunt.</em></h2>
           <p>Deze blog is net begonnen. Als er nieuwe ideeën, processen of observaties zijn, verschijnen ze hier.</p>
-        </article>
-        <span class="post-index">00</span>
+        </div>
+        <span class="post-index" aria-hidden="true">00</span>
       </article>
     </section>
   </main>
 
   <footer class="site-footer"><span>© 2026 Railey / RLLY</span><span>Gemaakt met aandacht.</span><a
-      href="mailto:raileyboer04@gmail.com">raileyboer04@gmail.com</a></footer>
+      href="contact.html">Neem contact op</a></footer>
 </body>
 
 </html>
