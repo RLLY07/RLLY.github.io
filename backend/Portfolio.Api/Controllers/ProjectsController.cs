@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Portfolio.Api.DTOs.Projects;
 using Portfolio.Api.Services;
@@ -23,6 +24,7 @@ public class ProjectsController(IProjectService projectService) : ControllerBase
     }
 
     [HttpPost]
+    [Authorize(Policy = PortfolioWritePolicy.Name)]
     public async Task<ActionResult<ProjectDto>> Create(
         CreateProjectDto dto,
         CancellationToken cancellationToken)
@@ -32,6 +34,7 @@ public class ProjectsController(IProjectService projectService) : ControllerBase
     }
 
     [HttpPut("{id:int}")]
+    [Authorize(Policy = PortfolioWritePolicy.Name)]
     public async Task<IActionResult> Update(
         int id,
         UpdateProjectDto dto,
@@ -42,6 +45,7 @@ public class ProjectsController(IProjectService projectService) : ControllerBase
     }
 
     [HttpDelete("{id:int}")]
+    [Authorize(Policy = PortfolioWritePolicy.Name)]
     public async Task<IActionResult> Delete(int id, CancellationToken cancellationToken)
     {
         var deleted = await projectService.DeleteAsync(id, cancellationToken);

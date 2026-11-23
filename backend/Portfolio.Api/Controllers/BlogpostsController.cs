@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Portfolio.Api.DTOs.Blogposts;
 using Portfolio.Api.Services;
@@ -23,6 +24,7 @@ public class BlogpostsController(IBlogpostService blogpostService) : ControllerB
     }
 
     [HttpPost]
+    [Authorize(Policy = PortfolioWritePolicy.Name)]
     public async Task<ActionResult<BlogpostDto>> Create(
         CreateBlogpostDto dto,
         CancellationToken cancellationToken)
@@ -32,6 +34,7 @@ public class BlogpostsController(IBlogpostService blogpostService) : ControllerB
     }
 
     [HttpPut("{id:int}")]
+    [Authorize(Policy = PortfolioWritePolicy.Name)]
     public async Task<IActionResult> Update(
         int id,
         UpdateBlogpostDto dto,
@@ -42,6 +45,7 @@ public class BlogpostsController(IBlogpostService blogpostService) : ControllerB
     }
 
     [HttpDelete("{id:int}")]
+    [Authorize(Policy = PortfolioWritePolicy.Name)]
     public async Task<IActionResult> Delete(int id, CancellationToken cancellationToken)
     {
         var deleted = await blogpostService.DeleteAsync(id, cancellationToken);

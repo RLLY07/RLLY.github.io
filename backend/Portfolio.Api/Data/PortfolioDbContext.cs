@@ -1,9 +1,12 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Portfolio.Api.Entities;
 
 namespace Portfolio.Api.Data;
 
-public class PortfolioDbContext(DbContextOptions<PortfolioDbContext> options) : DbContext(options)
+public class PortfolioDbContext(DbContextOptions<PortfolioDbContext> options)
+    : IdentityDbContext<IdentityUser>(options)
 {
     public DbSet<Project> Projects => Set<Project>();
 
@@ -11,6 +14,8 @@ public class PortfolioDbContext(DbContextOptions<PortfolioDbContext> options) : 
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        base.OnModelCreating(modelBuilder);
+
         modelBuilder.Entity<Project>(entity =>
         {
             entity.Property(project => project.Titel).HasMaxLength(150).IsRequired();
